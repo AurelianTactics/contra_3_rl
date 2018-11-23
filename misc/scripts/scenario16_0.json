@@ -1,0 +1,11 @@
+{
+  "done": {
+    "script": "lua:done_check"
+  },
+  "reward": {
+    "script": "lua:correct_score"
+  },
+  "scripts": [
+    "script16_0.lua"
+  ]
+}
