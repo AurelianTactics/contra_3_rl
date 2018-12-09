@@ -4,31 +4,6 @@
 Train an agent on contra III using PPO implementation by OpenAI baselines
 """
 
-#to do:
-#TEST implement num_env shit vs. one env shit
-#nenvs = env.num_envs=1 hardcoded to fix mistake BUT NOW I HAVE num_env arg, FIX THIS
-#how do I split the X so that the CNN inputs go to some part of the net and the other parts go to other parts of the net
-#change sonic discretizer to what I want, maybe not do this as a wrapper but here
-#ERROR FIX SONIC DISCRETIZER
-#how is the actual log output?
-#test the various args/outputs
-#why no placehoders for embed, unscaled images, other inputs? can I do it this way where I just input X?
-
-#the NN:
-#DONE wtf is going on with their code activ(...)
-#DONE how to do the last layer... like where does this output to that gets the proper output dims
-    #apparently last layer for FC is how this wants it, then goes into build_policy
-    #from baselines.common.policies import build_policy
-#DONE how to do the simple FC one
-    #how to initialize
-#DONE how to do one with
-    #batch norm
-    #self normalizing?
-
-#DONE add options for various wrappers
-#DONE add options for game and scenario
-#DONE nenvs = env.num_envs=1 hardcoded to fix mistake, maybe try exception block
-
 try:
     from mpi4py import MPI
 except ImportError:
@@ -53,22 +28,7 @@ import argparse
 from coord_conv import AddCoords
 import os
 from baselines import logger
-#from sonic_util_test import make_env
-#from baselines.common.vec_env.dummy_vec_env import DummyVecEnv
-#DummyVecEnv([make_env])
 
-#scenario is what .json file to use for the lua functions. stored in the game directory
-
-#export OPENAI_LOG_FORMAT='stdout,log,csv,tensorboard' # formats are comma-separated, but for tensorboard you only really need the last one
-#export OPENAI_LOGDIR=path/to/tensorboard/data
-
-#export OPENAI_LOG_FORMAT='stdout,tensorboard' # formats are comma-separated, but for tensorboard you only really need the last one
-#export OPENAI_LOGDIR='tmp/'
-
-# os.environ['OPENAI_LOGDIR']='/tmp/tb'
-# os.environ['OPENAI_LOG_FORMAT']='stdout,tensorboard'
-
-#os.environ['OPENAI_LOGDIR']='/log'
 os.environ['OPENAI_LOG_FORMAT']='stdout,log,csv,tensorboard'
 
 
@@ -368,60 +328,6 @@ def make_env(time_int, seed=None, subrank=0, game='ContraIII-Snes', state='level
 
     return env
 
-
-
-# def make_vec_env(env_id, env_type, num_env, seed, wrapper_kwargs=None, start_index=0, reward_scale=1.0, gamestate=None):
-#     """
-#     Create a wrapped, monitored SubprocVecEnv for Atari and MuJoCo.
-#     """
-#     if wrapper_kwargs is None: wrapper_kwargs = {}
-#     mpi_rank = MPI.COMM_WORLD.Get_rank() if MPI else 0
-#     seed = seed + 10000 * mpi_rank if seed is not None else None
-#     def make_thunk(rank):
-#         return lambda: make_env(
-#             env_id=env_id,
-#             env_type=env_type,
-#             subrank = rank,
-#             seed=seed,
-#             reward_scale=reward_scale,
-#             gamestate=gamestate,
-#             wrapper_kwargs=wrapper_kwargs
-#         )
-#
-#     set_global_seeds(seed)
-#     if num_env > 1:
-#         return SubprocVecEnv([make_thunk(i + start_index) for i in range(num_env)])
-#     else:
-#         return DummyVecEnv([make_thunk(start_index)])
-#
-#
-# def make_env(env_id, env_type, subrank=0, seed=None, reward_scale=1.0, gamestate=None, wrapper_kwargs={}):
-#     mpi_rank = MPI.COMM_WORLD.Get_rank() if MPI else 0
-#     if env_type == 'atari':
-#         env = make_atari(env_id)
-#     elif env_type == 'retro':
-#         import retro
-#         gamestate = gamestate or retro.State.DEFAULT
-#         env = retro_wrappers.make_retro(game=env_id, max_episode_steps=10000, use_restricted_actions=retro.Actions.DISCRETE, state=gamestate)
-#     else:
-#         env = gym.make(env_id)
-#
-#     env.seed(seed + subrank if seed is not None else None)
-#     env = Monitor(env,
-#                   logger.get_dir() and os.path.join(logger.get_dir(), str(mpi_rank) + '.' + str(subrank)),
-#                   allow_early_resets=True)
-#
-#     if env_type == 'atari':
-#         env = wrap_deepmind(env, **wrapper_kwargs)
-#     elif env_type == 'retro':
-#         env = retro_wrappers.wrap_deepmind_retro(env, **wrapper_kwargs)
-#
-#     if reward_scale != 1:
-#         env = retro_wrappers.RewardScaler(env, reward_scale)
-#
-#     return env
-
-#def contra_discretizer():
 class ContraDiscretizer(gym.ActionWrapper):
     """
     Wrap a gym-retro environment and make it use discrete
@@ -456,6 +362,3 @@ class ContraDiscretizer(gym.ActionWrapper):
 
 if __name__ == '__main__':
     main()
-
-
-
