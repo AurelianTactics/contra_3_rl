@@ -1,0 +1,68 @@
+{
+  "info": {
+    "lives": {
+      "address": 8265610,
+      "type": "|u1"
+    },
+    "weapon1": {
+      "address": 8265604,
+      "type": "|u1"
+    },
+    "weapon2": {
+      "address": 8265606,
+      "type": "|u1"
+    },
+    "active": {
+      "address": 8258070,
+      "type": "|u1"
+    },
+    "score": {
+      "address": 8265632,
+      "type": "<u4"
+    },
+    "level": {
+      "address": 8257670,
+      "type": "|u1"
+    },
+    "pod_0": {
+      "address": 8260294,
+      "type": "|u1"
+    },
+    "pod_1": {
+      "address": 8260358,
+      "type": "|u1"
+    },
+    "pod_2": {
+      "address": 8260422,
+      "type": "|u1"
+    },
+    "pod_3": {
+      "address": 8260486,
+      "type": "|u1"
+    },
+    "pod_4": {
+      "address": 8260550,
+      "type": "|u1"
+    },
+    "precise_x": {
+      "address": 8257560,
+      "type": "|u1"
+    },
+    "rough_x": {
+      "address": 8257561,
+      "type": "|u1"
+    },
+    "precise_y": {
+      "address": 8257562,
+      "type": "|u1"
+    },
+    "rough_y": {
+      "address": 8257563,
+      "type": "|u1"
+    },
+   "is_scrollable": {
+      "address": 8262586,
+      "type": "|u1"
+    }
+  }
+}
