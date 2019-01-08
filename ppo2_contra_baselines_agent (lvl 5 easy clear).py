@@ -26,7 +26,6 @@ from baselines.a2c import utils
 from baselines.a2c.utils import conv, fc, conv_to_fc, batch_to_seq, seq_to_batch
 import numpy as np
 import argparse
-from coord_conv import AddCoords
 import os
 from baselines import logger
 
