@@ -20,3 +20,11 @@ Explantion of files:
 * retro_movie_debugger.py: view videos of episodes and examing env outputs like rewards, info, lua script print messages etc. Useful for debugging
 * monitor_graphs.ipynb: Jupyter notebook that shows data from the /logs files to see results
 * image_test.ipynb: visual testing of observation space so you can see what your agent sees
+
+Command Line Arguments for Level 1-6 Clears:
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level1.1player.easy.100lives --num_env 21 --seed 112 --scenario_number 3 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario16
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level2.1player.easy.100lives --num_env 21 --seed 443 --scenario_number 7 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_lvl2_run2
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level3.1player.easy.100lives --num_env 21 --seed 279 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_lvl3_run12 --time_limit 20000
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level4.1player.easy.100lives --num_env 22 --seed 11143 --scenario_number 2 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario22
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level5.1player.easy.100lives --num_env 21 --seed 46 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_lvl5_run6
+* python3 ppo2_contra_baselines_agent.py --game ContraIII-Snes --state level6.1player.easy.100lives --num_env 21 --seed 222372 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario18
