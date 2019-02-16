@@ -23,6 +23,8 @@ Explantion of files:
 
 
 Command Line Arguments for Level 1-6 Clears:
+* python3 ppo2_contra_medium.py --game ContraIII-Snes --state level4.1player.hard.100lives --num_env 21 --seed 28 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_medium_lvl1_run0 --time_limit 20000 --network contra_mixed_cnn
+* python3 ppo2_contra_medium.py --game ContraIII-Snes --state level3.1player.medium.100lives --num_env 21 --seed 644 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_medium_lvl6_run0 --time_limit 20000 --network contra_mixed_cnn
 * python3 ppo2_contra_medium.py --game ContraIII-Snes --state level1.1player.hard.100lives --num_env 21 --seed 203 --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_medium_lvl1_run0 --time_limit 20000 --network contra_mixed_cnn
 * python3 ppo2_contra_medium.py --game ContraIII-Snes --state level1.1player.hard.100lives --num_env 21 --seed 7262  --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_medium_lvl1_run0 --time_limit 20000 --network cnn
 * python3 ppo2_contra_medium.py --game ContraIII-Snes --state level1.1player.medium.100lives --num_env 21 --seed 5242  --scenario_number 1 --stochastic_frame_skip 4 --scale_reward 0.01 --skip_prob 0.25 --scenario scenario_medium_lvl1_run0 --time_limit 20000 --network cnn
