@@ -2,6 +2,7 @@
 * Reinforcement Learning attempts to beat Contra 3 for the SNES
 * Run using Retro Gym (https://github.com/openai/retro)
 * Levels 1-6 cleared using OpenAI Baselines PPO implementation
+* See blog posts and videos: https://medium.com/aureliantactics/beating-easy-mode-on-contra-iii-with-reinforcement-learning-part-1-introduction-f004562f9840
 
 To run levels 1-6 easy clears:
 * Install Open AI Baselines (https://github.com/openai/baselines). These runs use the November 11th, 2018 version of PPO with some slight modifications (see the misc directory)
